@@ -441,5 +441,22 @@ namespace mm4clientTest
             MM4RemoteLastMethodResult  methodResult;
             _myError = _myClient.GetLastMethodResult(out lastMethodName, out methodResult);
         }
+
+        private void btnGetProcessPausedFormActive_Click(object sender, EventArgs e)
+        {
+            bool processFormActive;
+            _myError = _myClient.GetProcessPausedFormActive(out processFormActive);
+
+            ProcessError();
+
+            MessageBox.Show(processFormActive ? "Active" : "Inactive");
+        }
+
+        private void btnCloseActiveProcessPausedForm_Click(object sender, EventArgs e)
+        {
+            _myError = _myClient.CloseActiveProcessPausedForm();
+
+            ProcessError();
+        }
     }
 }

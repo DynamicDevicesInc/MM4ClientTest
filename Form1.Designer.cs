@@ -55,6 +55,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnGetLastMethodResult = new System.Windows.Forms.Button();
             this.lblStepNumber = new System.Windows.Forms.Label();
             this.txtStepNumber = new System.Windows.Forms.TextBox();
             this.btnStep = new System.Windows.Forms.Button();
@@ -79,7 +80,8 @@
             this.btnGetWorktablePersistMode = new System.Windows.Forms.Button();
             this.btnToPersistMode = new System.Windows.Forms.Button();
             this.btnToResetMode = new System.Windows.Forms.Button();
-            this.btnGetLastMethodResult = new System.Windows.Forms.Button();
+            this.btnCloseActiveProcessPausedForm = new System.Windows.Forms.Button();
+            this.btnGetProcessPausedFormActive = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -337,6 +339,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Method";
             // 
+            // btnGetLastMethodResult
+            // 
+            this.btnGetLastMethodResult.Location = new System.Drawing.Point(327, 154);
+            this.btnGetLastMethodResult.Name = "btnGetLastMethodResult";
+            this.btnGetLastMethodResult.Size = new System.Drawing.Size(142, 23);
+            this.btnGetLastMethodResult.TabIndex = 41;
+            this.btnGetLastMethodResult.Text = "Get Last Method Result";
+            this.btnGetLastMethodResult.UseVisualStyleBackColor = true;
+            this.btnGetLastMethodResult.Click += new System.EventHandler(this.btnGetLastMethodResult_Click);
+            // 
             // lblStepNumber
             // 
             this.lblStepNumber.AutoSize = true;
@@ -398,7 +410,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 525);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 584);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(578, 22);
             this.statusStrip1.TabIndex = 27;
@@ -421,7 +433,7 @@
             // 
             // txtEventMessage
             // 
-            this.txtEventMessage.Location = new System.Drawing.Point(12, 570);
+            this.txtEventMessage.Location = new System.Drawing.Point(10, 610);
             this.txtEventMessage.Name = "txtEventMessage";
             this.txtEventMessage.ReadOnly = true;
             this.txtEventMessage.Size = new System.Drawing.Size(556, 20);
@@ -572,22 +584,34 @@
             this.btnToResetMode.UseVisualStyleBackColor = true;
             this.btnToResetMode.Click += new System.EventHandler(this.btnToResetMode_Click);
             // 
-            // btnGetLastMethodResult
+            // btnCloseActiveProcessPausedForm
             // 
-            this.btnGetLastMethodResult.Location = new System.Drawing.Point(327, 154);
-            this.btnGetLastMethodResult.Name = "btnGetLastMethodResult";
-            this.btnGetLastMethodResult.Size = new System.Drawing.Size(142, 23);
-            this.btnGetLastMethodResult.TabIndex = 41;
-            this.btnGetLastMethodResult.Text = "Get Last Method Result";
-            this.btnGetLastMethodResult.UseVisualStyleBackColor = true;
-            this.btnGetLastMethodResult.Click += new System.EventHandler(this.btnGetLastMethodResult_Click);
+            this.btnCloseActiveProcessPausedForm.Location = new System.Drawing.Point(116, 524);
+            this.btnCloseActiveProcessPausedForm.Name = "btnCloseActiveProcessPausedForm";
+            this.btnCloseActiveProcessPausedForm.Size = new System.Drawing.Size(98, 53);
+            this.btnCloseActiveProcessPausedForm.TabIndex = 46;
+            this.btnCloseActiveProcessPausedForm.Text = "Close Active ProcessPaused Form";
+            this.btnCloseActiveProcessPausedForm.UseVisualStyleBackColor = true;
+            this.btnCloseActiveProcessPausedForm.Click += new System.EventHandler(this.btnCloseActiveProcessPausedForm_Click);
+            // 
+            // btnGetProcessPausedFormActive
+            // 
+            this.btnGetProcessPausedFormActive.Location = new System.Drawing.Point(12, 524);
+            this.btnGetProcessPausedFormActive.Name = "btnGetProcessPausedFormActive";
+            this.btnGetProcessPausedFormActive.Size = new System.Drawing.Size(98, 53);
+            this.btnGetProcessPausedFormActive.TabIndex = 45;
+            this.btnGetProcessPausedFormActive.Text = "Get Process Paused Form Active";
+            this.btnGetProcessPausedFormActive.UseVisualStyleBackColor = true;
+            this.btnGetProcessPausedFormActive.Click += new System.EventHandler(this.btnGetProcessPausedFormActive_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 547);
+            this.ClientSize = new System.Drawing.Size(578, 606);
+            this.Controls.Add(this.btnCloseActiveProcessPausedForm);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.btnGetProcessPausedFormActive);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnGetApplicationState);
             this.Controls.Add(this.btnGetLastError);
@@ -684,6 +708,8 @@
         private System.Windows.Forms.Button btnToPersistMode;
         private System.Windows.Forms.Button btnToResetMode;
         private System.Windows.Forms.Button btnGetLastMethodResult;
+        private System.Windows.Forms.Button btnCloseActiveProcessPausedForm;
+        private System.Windows.Forms.Button btnGetProcessPausedFormActive;
     }
 }
 
