@@ -444,17 +444,38 @@ namespace mm4clientTest
 
         private void btnGetProcessPausedFormActive_Click(object sender, EventArgs e)
         {
-            bool processFormActive;
-            _myError = _myClient.GetProcessPausedFormActive(out processFormActive);
+            bool active;
+            bool continueAvailable;
+            bool retryAvailable;
+            _myError = _myClient.GetProcessPausedFormActive(out active, out continueAvailable, out retryAvailable);
 
             ProcessError();
 
-            MessageBox.Show(processFormActive ? "Active" : "Inactive");
+            if (_myError == MM4RemoteError.OK)
+            {
+                MessageBox.Show("Process Paused Form is " + (active ? "active," : "inactive,") + Environment.NewLine +
+                "Continue Option is " + (continueAvailable ? "available, " : "not available,") + Environment.NewLine +
+                "Retry Option is " + (continueAvailable ? "available. " : "not available."));
+
+                btnCloseActiveProcessPausedForm.Enabled = active;
+                chkContinue.Enabled = continueAvailable;
+                chkRetry.Enabled = retryAvailable;
+            }
         }
 
         private void btnCloseActiveProcessPausedForm_Click(object sender, EventArgs e)
         {
-            _myError = _myClient.CloseActiveProcessPausedForm();
+            _myError = _myClient.CloseActiveProcessPausedForm((chkContinue.Enabled & chkContinue.Checked), (chkRetry.Enabled & chkRetry.Checked));
+
+            ProcessError();
+
+            if (_myError == MM4RemoteError.OK)
+                btnCloseActiveProcessPausedForm.Enabled = chkContinue.Enabled = chkRetry.Enabled = false;
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            _myError = _myClient.PauseMethod();
 
             ProcessError();
         }
