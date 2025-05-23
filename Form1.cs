@@ -119,9 +119,8 @@ namespace mm4clientTest
 
                     _myClient.OnInitializationComplete += myClient_OnInitializationComplete;
                     _myClient.OnConnectionComplete += myClient_OnConnectionComplete;
-
-                    _myClient.MethodWatch(true);
                     _myClient.OnMethodComplete += myClient_OnMethodComplete;
+                    _myClient.OnVariableChanged += myClient_OnVariableChanged;
                 }
             }
             else
@@ -136,6 +135,12 @@ namespace mm4clientTest
 
             btnConnect.Text = _myClient.IsConnected ? "Disconnect" : "Connect";
             btnReadVariable.Enabled = btnWriteVariable.Enabled = _myClient.IsConnected;
+        }
+
+
+        void myClient_OnVariableChanged(string variableName, string value, MM4RemoteApplicationState applicationState)
+        {
+            MessageBox.Show("Variable - [" + variableName + "] value changed to [" + value + "]");
         }
 
         void myClient_OnMethodComplete(string methodName, bool error, MM4RemoteApplicationState applicationState)
@@ -168,6 +173,7 @@ namespace mm4clientTest
 
             _myClient.MethodWatch(false);
             _myClient.OnMethodComplete -= myClient_OnMethodComplete;
+            _myClient.OnVariableChanged -= myClient_OnVariableChanged;
 
             if (_myClient.IsConnected)
                 _myClient.Disconnect();
@@ -478,6 +484,32 @@ namespace mm4clientTest
             _myError = _myClient.PauseMethod();
 
             ProcessError();
+        }
+
+        private void btnWatchVariable_Click(object sender, EventArgs e)
+        {
+            if (txtVariableName.Text != "")
+            {
+                _myClient.VariableWatch(txtVariableName.Text, true);
+            }
+        }
+
+        private void btnUnwatchVariable_Click(object sender, EventArgs e)
+        {
+            if (txtVariableName.Text != "")
+            {
+                _myClient.VariableWatch(txtVariableName.Text, false);
+            }
+        }
+
+        private void btnWatchMethod_Click(object sender, EventArgs e)
+        {
+            _myClient.MethodWatch(true);
+        }
+
+        private void btnUnwatchMethod_Click(object sender, EventArgs e)
+        {
+            _myClient.MethodWatch(false);
         }
     }
 }

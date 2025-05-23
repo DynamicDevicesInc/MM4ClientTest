@@ -85,6 +85,11 @@
             this.btnGetProcessPausedFormActive = new System.Windows.Forms.Button();
             this.chkRetry = new System.Windows.Forms.CheckBox();
             this.chkContinue = new System.Windows.Forms.CheckBox();
+            this.btnWatchVariable = new System.Windows.Forms.Button();
+            this.btnUnwatchVariable = new System.Windows.Forms.Button();
+            this.btnUnwatchMethod = new System.Windows.Forms.Button();
+            this.btnWatchMethod = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -114,7 +119,7 @@
             // 
             // btnWriteVariable
             // 
-            this.btnWriteVariable.Location = new System.Drawing.Point(18, 66);
+            this.btnWriteVariable.Location = new System.Drawing.Point(18, 55);
             this.btnWriteVariable.Name = "btnWriteVariable";
             this.btnWriteVariable.Size = new System.Drawing.Size(75, 23);
             this.btnWriteVariable.TabIndex = 2;
@@ -134,7 +139,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(95, 24);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(95, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 4;
@@ -179,7 +185,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(182, 24);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(182, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 13);
             this.label2.TabIndex = 9;
@@ -188,7 +195,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(389, 24);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(390, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 11;
@@ -197,7 +205,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(302, 24);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(303, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 10;
@@ -206,7 +215,8 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(493, 24);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(491, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 12;
@@ -307,6 +317,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnUnwatchVariable);
+            this.groupBox1.Controls.Add(this.btnWatchVariable);
             this.groupBox1.Controls.Add(this.btnReadVariable);
             this.groupBox1.Controls.Add(this.btnWriteVariable);
             this.groupBox1.Controls.Add(this.txtVariableName);
@@ -315,13 +327,15 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(12, 159);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(556, 95);
+            this.groupBox1.Size = new System.Drawing.Size(556, 118);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Variable";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnUnwatchMethod);
+            this.groupBox2.Controls.Add(this.btnWatchMethod);
             this.groupBox2.Controls.Add(this.btnPause);
             this.groupBox2.Controls.Add(this.btnGetLastMethodResult);
             this.groupBox2.Controls.Add(this.lblStepNumber);
@@ -336,7 +350,7 @@
             this.groupBox2.Controls.Add(this.txtActiveMethod);
             this.groupBox2.Controls.Add(this.txtActiveMethodState);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Location = new System.Drawing.Point(12, 260);
+            this.groupBox2.Location = new System.Drawing.Point(12, 283);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(556, 229);
             this.groupBox2.TabIndex = 26;
@@ -424,7 +438,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 584);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 635);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(578, 22);
             this.statusStrip1.TabIndex = 27;
@@ -476,7 +490,7 @@
             // 
             // btnGetLastErrorMessage
             // 
-            this.btnGetLastErrorMessage.Location = new System.Drawing.Point(93, 495);
+            this.btnGetLastErrorMessage.Location = new System.Drawing.Point(111, 518);
             this.btnGetLastErrorMessage.Name = "btnGetLastErrorMessage";
             this.btnGetLastErrorMessage.Size = new System.Drawing.Size(125, 23);
             this.btnGetLastErrorMessage.TabIndex = 33;
@@ -486,7 +500,7 @@
             // 
             // btnGetMethodState
             // 
-            this.btnGetMethodState.Location = new System.Drawing.Point(224, 495);
+            this.btnGetMethodState.Location = new System.Drawing.Point(242, 518);
             this.btnGetMethodState.Name = "btnGetMethodState";
             this.btnGetMethodState.Size = new System.Drawing.Size(118, 23);
             this.btnGetMethodState.TabIndex = 34;
@@ -496,7 +510,7 @@
             // 
             // btnGetLastError
             // 
-            this.btnGetLastError.Location = new System.Drawing.Point(12, 495);
+            this.btnGetLastError.Location = new System.Drawing.Point(30, 518);
             this.btnGetLastError.Name = "btnGetLastError";
             this.btnGetLastError.Size = new System.Drawing.Size(75, 23);
             this.btnGetLastError.TabIndex = 35;
@@ -506,7 +520,7 @@
             // 
             // btnGetApplicationState
             // 
-            this.btnGetApplicationState.Location = new System.Drawing.Point(348, 495);
+            this.btnGetApplicationState.Location = new System.Drawing.Point(366, 518);
             this.btnGetApplicationState.Name = "btnGetApplicationState";
             this.btnGetApplicationState.Size = new System.Drawing.Size(118, 23);
             this.btnGetApplicationState.TabIndex = 36;
@@ -601,7 +615,7 @@
             // btnCloseActiveProcessPausedForm
             // 
             this.btnCloseActiveProcessPausedForm.Enabled = false;
-            this.btnCloseActiveProcessPausedForm.Location = new System.Drawing.Point(116, 524);
+            this.btnCloseActiveProcessPausedForm.Location = new System.Drawing.Point(134, 547);
             this.btnCloseActiveProcessPausedForm.Name = "btnCloseActiveProcessPausedForm";
             this.btnCloseActiveProcessPausedForm.Size = new System.Drawing.Size(98, 53);
             this.btnCloseActiveProcessPausedForm.TabIndex = 46;
@@ -611,7 +625,7 @@
             // 
             // btnGetProcessPausedFormActive
             // 
-            this.btnGetProcessPausedFormActive.Location = new System.Drawing.Point(12, 524);
+            this.btnGetProcessPausedFormActive.Location = new System.Drawing.Point(30, 547);
             this.btnGetProcessPausedFormActive.Name = "btnGetProcessPausedFormActive";
             this.btnGetProcessPausedFormActive.Size = new System.Drawing.Size(98, 53);
             this.btnGetProcessPausedFormActive.TabIndex = 45;
@@ -623,7 +637,7 @@
             // 
             this.chkRetry.AutoSize = true;
             this.chkRetry.Enabled = false;
-            this.chkRetry.Location = new System.Drawing.Point(227, 555);
+            this.chkRetry.Location = new System.Drawing.Point(245, 578);
             this.chkRetry.Name = "chkRetry";
             this.chkRetry.Size = new System.Drawing.Size(51, 17);
             this.chkRetry.TabIndex = 48;
@@ -634,18 +648,69 @@
             // 
             this.chkContinue.AutoSize = true;
             this.chkContinue.Enabled = false;
-            this.chkContinue.Location = new System.Drawing.Point(227, 532);
+            this.chkContinue.Location = new System.Drawing.Point(245, 555);
             this.chkContinue.Name = "chkContinue";
             this.chkContinue.Size = new System.Drawing.Size(68, 17);
             this.chkContinue.TabIndex = 47;
             this.chkContinue.Text = "Continue";
             this.chkContinue.UseVisualStyleBackColor = true;
             // 
+            // btnWatchVariable
+            // 
+            this.btnWatchVariable.Location = new System.Drawing.Point(18, 84);
+            this.btnWatchVariable.Name = "btnWatchVariable";
+            this.btnWatchVariable.Size = new System.Drawing.Size(75, 23);
+            this.btnWatchVariable.TabIndex = 17;
+            this.btnWatchVariable.Text = "Watch";
+            this.btnWatchVariable.UseVisualStyleBackColor = true;
+            this.btnWatchVariable.Click += new System.EventHandler(this.btnWatchVariable_Click);
+            // 
+            // btnUnwatchVariable
+            // 
+            this.btnUnwatchVariable.Location = new System.Drawing.Point(104, 84);
+            this.btnUnwatchVariable.Name = "btnUnwatchVariable";
+            this.btnUnwatchVariable.Size = new System.Drawing.Size(75, 23);
+            this.btnUnwatchVariable.TabIndex = 18;
+            this.btnUnwatchVariable.Text = "Unwatch";
+            this.btnUnwatchVariable.UseVisualStyleBackColor = true;
+            this.btnUnwatchVariable.Click += new System.EventHandler(this.btnUnwatchVariable_Click);
+            // 
+            // btnUnwatchMethod
+            // 
+            this.btnUnwatchMethod.Location = new System.Drawing.Point(227, 191);
+            this.btnUnwatchMethod.Name = "btnUnwatchMethod";
+            this.btnUnwatchMethod.Size = new System.Drawing.Size(75, 23);
+            this.btnUnwatchMethod.TabIndex = 44;
+            this.btnUnwatchMethod.Text = "Unwatch";
+            this.btnUnwatchMethod.UseVisualStyleBackColor = true;
+            this.btnUnwatchMethod.Click += new System.EventHandler(this.btnUnwatchMethod_Click);
+            // 
+            // btnWatchMethod
+            // 
+            this.btnWatchMethod.Location = new System.Drawing.Point(141, 191);
+            this.btnWatchMethod.Name = "btnWatchMethod";
+            this.btnWatchMethod.Size = new System.Drawing.Size(75, 23);
+            this.btnWatchMethod.TabIndex = 43;
+            this.btnWatchMethod.Text = "Watch";
+            this.btnWatchMethod.UseVisualStyleBackColor = true;
+            this.btnWatchMethod.Click += new System.EventHandler(this.btnWatchMethod_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(326, 24);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(74, 12);
+            this.label11.TabIndex = 49;
+            this.label11.Text = "(For Notification)";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 606);
+            this.ClientSize = new System.Drawing.Size(578, 657);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.chkRetry);
             this.Controls.Add(this.chkContinue);
             this.Controls.Add(this.btnCloseActiveProcessPausedForm);
@@ -752,6 +817,11 @@
         private System.Windows.Forms.CheckBox chkRetry;
         private System.Windows.Forms.CheckBox chkContinue;
         private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Button btnWatchVariable;
+        private System.Windows.Forms.Button btnUnwatchVariable;
+        private System.Windows.Forms.Button btnUnwatchMethod;
+        private System.Windows.Forms.Button btnWatchMethod;
+        private System.Windows.Forms.Label label11;
     }
 }
 
