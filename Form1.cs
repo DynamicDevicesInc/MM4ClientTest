@@ -121,6 +121,7 @@ namespace mm4clientTest
                     _myClient.OnConnectionComplete += myClient_OnConnectionComplete;
                     _myClient.OnMethodComplete += myClient_OnMethodComplete;
                     _myClient.OnVariableChanged += myClient_OnVariableChanged;
+                    _myClient.OnMethodPausedOrError += myClient_OnMethodPausedOrError;
                 }
             }
             else
@@ -137,6 +138,11 @@ namespace mm4clientTest
             btnReadVariable.Enabled = btnWriteVariable.Enabled = _myClient.IsConnected;
         }
 
+        void myClient_OnMethodPausedOrError(string errorMessages, MM4RemoteApplicationState applicationState)
+        {
+            //throw new NotImplementedException();
+            MessageBox.Show(errorMessages);
+        }
 
         void myClient_OnVariableChanged(string variableName, string value, MM4RemoteApplicationState applicationState)
         {
@@ -174,6 +180,7 @@ namespace mm4clientTest
             _myClient.MethodWatch(false);
             _myClient.OnMethodComplete -= myClient_OnMethodComplete;
             _myClient.OnVariableChanged -= myClient_OnVariableChanged;
+            _myClient.OnMethodPausedOrError -= myClient_OnMethodPausedOrError;  
 
             if (_myClient.IsConnected)
                 _myClient.Disconnect();
