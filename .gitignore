@@ -39,3 +39,6 @@ obj/Release/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
 obj/Release/TempPE/Properties.Resources.Designer.cs.dll
 *.manifest
 *.cache
+/obj
+.vs/mm4clientTest/FileContentIndex/072cc130-a7bd-4d00-9f60-7966c51cef4c.vsidx
+.vs/mm4clientTest/v17/.suo

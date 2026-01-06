@@ -138,10 +138,10 @@ namespace mm4clientTest
             btnReadVariable.Enabled = btnWriteVariable.Enabled = _myClient.IsConnected;
         }
 
-        void myClient_OnMethodPausedOrError(string errorMessages, MM4RemoteApplicationState applicationState)
+        private void myClient_OnMethodPausedOrError(string methodName, string errorMessages, MM4RemoteApplicationState applicationState)
         {
             //throw new NotImplementedException();
-            MessageBox.Show(errorMessages);
+            MessageBox.Show("Method - [" + methodName + "] ErrorMessage(s) - [" + errorMessages + "]");
         }
 
         void myClient_OnVariableChanged(string variableName, string value, MM4RemoteApplicationState applicationState)
